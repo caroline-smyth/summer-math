@@ -7,6 +7,7 @@ rng = np.random.default_rng(42)
 
 paths = 50
 points = 1000
+x = 100
 
 mu, sigma = 0.0, 1.0
 
