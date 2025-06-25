@@ -121,10 +121,10 @@ for idx in range(points - 1):
   real_idx = idx + 1
   W[:, real_idx] = W[:, real_idx - 1] + np.sqrt(dt) * Z[:, idx]
 
-"""
 branch_rate = 1.0    # expected death events per unit time per path
 x0 = 100             # starting value for all paths
 
+plt.figure(figsize=(12, 8))
 fig, ax = plt.subplots(1, 1, figsize=(12, 8))
 for path in range(paths):
   ax.plot(t_axis, W[path, :])
@@ -134,7 +134,7 @@ ax.set_ylabel("Asset Value")
 plt.show()
 
 t_b, X_b = simulate_branching(paths, points, mu, sigma, x0, branch_rate, interval)
-
+plt.figure(figsize=(12, 8))
 fig, ax = plt.subplots(figsize=(12, 8))
 for i in range(paths):
     ax.plot(t_b, X_b[i, :])
@@ -144,7 +144,7 @@ ax.set_ylabel("Asset Value")
 plt.show()
 
 t_o, offs = simulate_offspring_branching(paths, points, mu, sigma, x0, branch_rate, interval)
-
+plt.figure(figsize=(12, 8))
 fig, ax = plt.subplots(figsize=(12, 8))
 for hist in offs:
     ax.plot(t_o, hist, lw=1)
@@ -153,7 +153,7 @@ ax.set_xlabel("Time")
 ax.set_ylabel("Asset Value")
 plt.tight_layout()
 plt.show()
-"""
+
 paths       = 5
 points      = 500
 mu, sigma   = 0.0, 1.0
